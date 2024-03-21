@@ -1,0 +1,43 @@
+.products > div {
+  border-bottom: 1px solid #eeeeee;
+}
+
+.products > div a {
+  padding: 1rem 0;
+  display: flex;
+  gap: 1rem;
+  text-decoration: none;
+  color: #333;
+}
+
+.products > div a:hover {
+  background-color: #eeeeee;
+}
+
+.products > div img {
+  width: 120px;
+  height: 120px;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.products > div div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.products > div div h2 {
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+.products > div div span {
+  font-size: 0.8rem;
+}
+
+.products > div div p {
+  font-size: 1.2rem;
+  margin: 0;
+  margin-top: auto;
+}

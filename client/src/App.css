@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  background-color: rgb(234, 234, 234);
+}
+
+#root {
+  width: 100%;
+  max-width: 576px;
+  margin: 0 auto;
+  background-color: white;
+  position: relative;
+}
+
+main {
+  padding: 76px 16px 60px 16px;
+  min-height: 100vh;
+  position: relative;
+  box-sizing: border-box;
+}

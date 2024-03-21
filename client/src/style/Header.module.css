@@ -1,0 +1,30 @@
+.header {
+  background-color: brown;
+  text-align: center;
+  color: white;
+  position: fixed;
+  width: 100%;
+  max-width: 576px;
+  z-index: 1;
+}
+
+.header h1 {
+  margin: 0;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+.container {
+  position: relative;
+}
+
+.container a {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: white;
+  padding: 0.5rem;
+}

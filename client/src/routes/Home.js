@@ -1,15 +1,13 @@
-import Aside from '../components/Aside';
-import Header from '../components/Header';
-import Main from '../components/Main';
+import Layout from '../components/layout/Layout';
+import AllProducts from '../components/AllProducts';
+import { useState } from 'react';
 
-function Home() {
+export default function Home() {
+  const [isHome, setIsHome] = useState(true);
+
   return (
-    <>
-      <Header />
-      <Main />
-      <Aside />
-    </>
+    <Layout isHome={isHome}>
+      <AllProducts />
+    </Layout>
   );
 }
-
-export default Home;

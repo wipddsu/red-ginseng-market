@@ -1,0 +1,23 @@
+.container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.container form {
+}
+
+.container form div {
+  position: relative;
+}
+
+.container form div input {
+  width: 100%;
+  padding: 0.5rem 3rem 0.5rem 0.3rem;
+}
+
+.container form div button {
+  position: absolute;
+  right: 0.3rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
