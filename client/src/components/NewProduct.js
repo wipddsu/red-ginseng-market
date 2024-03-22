@@ -40,7 +40,7 @@ export default function NewProduct() {
           </div>
           <div>
             <label htmlFor="image">이미지 링크</label>
-            <input type="text" id="image" name="image" />
+            <input type="url" id="image" name="image" />
             {isErrors.includes('image') && <p>이미지 링크를 입력해주세요.</p>}
           </div>
           <div>
