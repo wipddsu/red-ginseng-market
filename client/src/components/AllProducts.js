@@ -10,7 +10,7 @@ export default function AllProducts() {
 
   useEffect(() => {
     async function fetchProducts() {
-      const response = await fetch('https://dummyjson.com/products');
+      const response = await fetch('http://localhost:3001/products');
       const data = await response.json();
 
       setProducts(data.products);
@@ -28,7 +28,7 @@ export default function AllProducts() {
           {products.map((product) => (
             <div key={product.id}>
               <Link to={`/product/${product.id}`}>
-                <img src={product.images[0]} />
+                <img src={product.image} />
                 <div>
                   <h2>{product.title}</h2>
                   <span>{product.category}</span>
