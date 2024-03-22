@@ -18,3 +18,9 @@
 .container form div input {
   padding: 0.2rem 0.3rem;
 }
+
+.container form div p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: red;
+}
