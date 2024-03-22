@@ -3,7 +3,7 @@ import AllProducts from '../components/AllProducts';
 import { useState } from 'react';
 
 export default function Home() {
-  const [isHome, setIsHome] = useState(true);
+  const isHome = true;
 
   return (
     <Layout isHome={isHome}>
