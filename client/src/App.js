@@ -5,6 +5,7 @@ import New from './routes/New';
 import Search from './routes/Search';
 
 import './App.css';
+import Result from './routes/Result';
 
 function App() {
   const router = createBrowserRouter([
@@ -23,6 +24,10 @@ function App() {
     {
       path: '/search',
       element: <Search />,
+    },
+    {
+      path: '/search/:q',
+      element: <Result />,
     },
   ]);
   return <RouterProvider router={router} />;

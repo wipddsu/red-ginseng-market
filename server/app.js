@@ -32,6 +32,19 @@ app.get('/products/:id', async (req, res) => {
   res.status(200).json(...selectedProduct);
 });
 
+app.post('/search', async (req, res) => {
+  const { query } = req.body;
+  const fileContent = await fs.readFile('./data/products.json');
+
+  const productsData = JSON.parse(fileContent);
+  const searchedProduct = productsData.filter((product) => {
+    const regex = new RegExp(query, 'gi');
+    return product.title.match(regex);
+  });
+
+  res.status(200).json([...searchedProduct]);
+});
+
 app.listen(3001, () => {
   console.log(`Example app listening on port ${port}`);
 });
