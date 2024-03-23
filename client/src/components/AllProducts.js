@@ -1,29 +1,53 @@
 import { useState, useEffect } from 'react';
+import Aside from './Aside';
+import Error from './Error';
 import { Link } from 'react-router-dom';
 
 import style from '../style/AllProducts.module.css';
-import Aside from './Aside';
 
 export default function AllProducts() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchProducts() {
-      const response = await fetch('http://localhost:3001/products');
-      const data = await response.json();
+      setIsLoading(true);
 
-      setProducts(data.products);
+      try {
+        const response = await fetch('http://localhost:3001/products');
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error('Failed to load Data');
+        }
+
+        setProducts(data.products);
+      } catch (error) {
+        setError({
+          message: 'Could not load products, pleas try again later.',
+        });
+      }
+
       setIsLoading(false);
     }
 
     fetchProducts();
   }, []);
 
+  if (error) {
+    return (
+      <main className={style.products}>
+        <Error title="An error occurred!" message={error.message} />
+      </main>
+    );
+  }
+
   return (
     <main className={style.products}>
       {isLoading && <h1>Loading...</h1>}
-      {!isLoading && (
+      {!isLoading && products.length === 0 && <p>No products available</p>}
+      {!isLoading && products.length > 0 && (
         <>
           {products.map((product) => (
             <div key={product.id}>

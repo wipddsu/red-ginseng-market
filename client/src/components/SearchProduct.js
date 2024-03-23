@@ -5,14 +5,20 @@ import style from '../style/SearchProduct.module.css';
 
 export default function SearchProduct() {
   const [query, setQuery] = useState('');
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   async function handleSearch() {
-    const data = await fetchSearchedProducts();
-
-    navigate(`/search/${query}`, {
-      state: [...data],
-    });
+    try {
+      const data = await fetchSearchedProducts();
+      navigate(`/search/${query}`, {
+        state: [...data],
+      });
+    } catch (error) {
+      setError({
+        message: 'Could not search products, please try again later.',
+      });
+    }
   }
 
   async function fetchSearchedProducts() {
@@ -23,8 +29,12 @@ export default function SearchProduct() {
       },
       body: JSON.stringify({ query }),
     });
-    const data = await response.json();
 
+    if (!response.ok) {
+      throw new Error('Failed to search product');
+    }
+
+    const data = await response.json();
     return data;
   }
 
@@ -35,6 +45,7 @@ export default function SearchProduct() {
   return (
     <main>
       <div className={style.container}>
+        {error && <p>{error.message}</p>}
         <h2>상품 검색</h2>
         <form>
           <div>
