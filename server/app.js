@@ -1,8 +1,21 @@
-const fs = require('node:fs/promises');
-const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
+const mongoose = require('mongoose');
+const Product = require('./models/product');
+const bodyParser = require('body-parser');
 const port = 3001;
+
+main().catch((err) => console.log(err));
+
+async function main() {
+  await mongoose.connect('mongodb://127.0.0.1:27017/rgMarket');
+}
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+  console.log('Database connected');
+});
 
 app.use(bodyParser.json());
 
@@ -15,29 +28,21 @@ app.use((req, res, next) => {
 });
 
 app.get('/products', async (req, res) => {
-  const fileContent = await fs.readFile('./data/products.json');
-
-  const productsData = JSON.parse(fileContent);
-
-  res.status(200).json({ products: productsData });
+  const products = await Product.find({});
+  res.status(200).json({ products: products });
 });
 
 app.get('/products/:id', async (req, res) => {
   const { id } = req.params;
-  const fileContent = await fs.readFile('./data/products.json');
+  const product = await Product.findById(id);
 
-  const productsData = JSON.parse(fileContent);
-  const selectedProduct = productsData.filter((product) => product.id === Number(id));
-
-  res.status(200).json(...selectedProduct);
+  res.status(200).json(product);
 });
 
 app.post('/search', async (req, res) => {
   const { query } = req.body;
-  const fileContent = await fs.readFile('./data/products.json');
-
-  const productsData = JSON.parse(fileContent);
-  const searchedProduct = productsData.filter((product) => {
+  const products = await Product.find({});
+  const searchedProduct = products.filter((product) => {
     const regex = new RegExp(query, 'gi');
     return product.title.match(regex);
   });
@@ -45,6 +50,6 @@ app.post('/search', async (req, res) => {
   res.status(200).json([...searchedProduct]);
 });
 
-app.listen(3001, () => {
-  console.log(`Example app listening on port ${port}`);
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
 });

@@ -9,18 +9,20 @@ export default function SearchResult() {
   return (
     <main>
       <h2>검색어: {query.q}</h2>
-      {products.map((product) => (
-        <div key={product.id}>
-          <Link to={`/product/${product.id}`}>
-            <img src={product.image} />
-            <div>
-              <h2>{product.title}</h2>
-              <span>{product.category}</span>
-              <p>$ {product.price}</p>
-            </div>
-          </Link>
-        </div>
-      ))}
+      {products.length === 0 && <p>There are no products matching your search term.</p>}
+      {products.length > 0 &&
+        products.map((product) => (
+          <div key={product._id}>
+            <Link to={`/product/${product._id}`}>
+              <img src={product.image} />
+              <div>
+                <h2>{product.title}</h2>
+                <span>{product.category}</span>
+                <p>$ {product.price}</p>
+              </div>
+            </Link>
+          </div>
+        ))}
     </main>
   );
 }

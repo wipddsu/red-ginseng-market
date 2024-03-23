@@ -50,8 +50,8 @@ export default function AllProducts() {
       {!isLoading && products.length > 0 && (
         <>
           {products.map((product) => (
-            <div key={product.id}>
-              <Link to={`/product/${product.id}`}>
+            <div key={product._id}>
+              <Link to={`/product/${product._id}`}>
                 <img src={product.image} />
                 <div>
                   <h2>{product.title}</h2>
