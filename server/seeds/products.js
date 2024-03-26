@@ -4,7 +4,7 @@ module.exports = [
     description: 'An apple mobile which is nothing like apple',
     price: 549,
     brand: 'Apple',
-    category: 'smartphones',
+    category: '디지털기기',
     image: 'https://cdn.dummyjson.com/product-images/1/1.jpg',
   },
   {
@@ -13,7 +13,7 @@ module.exports = [
       'SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...',
     price: 899,
     brand: 'Apple',
-    category: 'smartphones',
+    category: '디지털기기',
     image: 'https://cdn.dummyjson.com/product-images/2/1.jpg',
   },
   {
@@ -21,7 +21,7 @@ module.exports = [
     description: "Samsung's new variant which goes beyond Galaxy to the Universe",
     price: 1249,
     brand: 'Samsung',
-    category: 'smartphones',
+    category: '디지털기기',
     image: 'https://cdn.dummyjson.com/product-images/3/1.jpg',
   },
   {
@@ -29,7 +29,7 @@ module.exports = [
     description: 'OPPO F19 is officially announced on April 2021.',
     price: 280,
     brand: 'OPPO',
-    category: 'smartphones',
+    category: '디지털기기',
     image: 'https://cdn.dummyjson.com/product-images/4/1.jpg',
   },
   {
@@ -38,7 +38,7 @@ module.exports = [
       'Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.',
     price: 499,
     brand: 'Huawei',
-    category: 'smartphones',
+    category: '디지털기기',
     image: 'https://cdn.dummyjson.com/product-images/5/1.jpg',
   },
   {
@@ -46,7 +46,7 @@ module.exports = [
     description: 'MacBook Pro 2021 with mini-LED display may launch between September, November',
     price: 1749,
     brand: 'Apple',
-    category: 'laptops',
+    category: '디지털기기',
     image: 'https://cdn.dummyjson.com/product-images/6/1.png',
   },
   {
@@ -54,7 +54,7 @@ module.exports = [
     description: 'Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched',
     price: 1499,
     brand: 'Samsung',
-    category: 'laptops',
+    category: '디지털기기',
     image: 'https://cdn.dummyjson.com/product-images/7/1.jpg',
   },
   {
@@ -63,7 +63,7 @@ module.exports = [
       'Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.',
     price: 1499,
     brand: 'Microsoft Surface',
-    category: 'laptops',
+    category: '디지털기기',
     image: 'https://cdn.dummyjson.com/product-images/8/1.jpg',
   },
   {
@@ -71,7 +71,7 @@ module.exports = [
     description: 'Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty',
     price: 1099,
     brand: 'Infinix',
-    category: 'laptops',
+    category: '디지털기기',
     image: 'https://cdn.dummyjson.com/product-images/9/1.jpg',
   },
   {
@@ -79,7 +79,7 @@ module.exports = [
     description: 'HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10',
     price: 1099,
     brand: 'HP Pavilion',
-    category: 'laptops',
+    category: '디지털기기',
     image: 'https://cdn.dummyjson.com/product-images/10/1.jpg',
   },
   {
@@ -87,7 +87,7 @@ module.exports = [
     description: 'Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil',
     price: 13,
     brand: 'Impression of Acqua Di Gio',
-    category: 'fragrances',
+    category: '뷰티',
     image: 'https://cdn.dummyjson.com/product-images/11/1.jpg',
   },
   {
@@ -95,7 +95,7 @@ module.exports = [
     description: 'Royal_Mirage Sport Brown Perfume for Men & Women - 120ml',
     price: 40,
     brand: 'Royal_Mirage',
-    category: 'fragrances',
+    category: '뷰티',
     image: 'https://cdn.dummyjson.com/product-images/12/1.jpg',
   },
   {
@@ -103,7 +103,7 @@ module.exports = [
     description: 'Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men',
     price: 13,
     brand: 'Fog Scent Xpressio',
-    category: 'fragrances',
+    category: '뷰티',
     image: 'https://cdn.dummyjson.com/product-images/13/1.jpg',
   },
   {
@@ -112,7 +112,7 @@ module.exports = [
       'Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil',
     price: 120,
     brand: 'Al Munakh',
-    category: 'fragrances',
+    category: '뷰티',
     image: 'https://cdn.dummyjson.com/product-images/14/1.jpg',
   },
   {
@@ -120,7 +120,7 @@ module.exports = [
     description: 'Genuine  Al-Rehab spray perfume from UAE/Saudi Arabia/Yemen High Quality',
     price: 30,
     brand: 'Lord - Al-Rehab',
-    category: 'fragrances',
+    category: '뷰티',
     image: 'https://cdn.dummyjson.com/product-images/15/1.jpg',
   },
   {
@@ -128,7 +128,7 @@ module.exports = [
     description: "L'OrÃ©al Paris introduces Hyaluron Expert Replumping Serum formulated with 1.5% Hyaluronic Acid",
     price: 19,
     brand: "L'Oreal Paris",
-    category: 'skincare',
+    category: '뷰티',
     image: 'https://cdn.dummyjson.com/product-images/16/1.png',
   },
   {
@@ -137,7 +137,7 @@ module.exports = [
       'Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,',
     price: 12,
     brand: 'Hemani Tea',
-    category: 'skincare',
+    category: '뷰티',
     image: 'https://cdn.dummyjson.com/product-images/17/1.jpg',
   },
   {
@@ -146,7 +146,7 @@ module.exports = [
       'Dermive Oil Free Moisturizer with SPF 20 is specifically formulated with ceramides, hyaluronic acid & sunscreen.',
     price: 40,
     brand: 'Dermive',
-    category: 'skincare',
+    category: '뷰티',
     image: 'https://cdn.dummyjson.com/product-images/18/1.jpg',
   },
   {
@@ -154,7 +154,7 @@ module.exports = [
     description: 'Product name: rorec collagen hyaluronic acid white face serum riceNet weight: 15 m',
     price: 46,
     brand: 'ROREC White Rice',
-    category: 'skincare',
+    category: '뷰티',
     image: 'https://cdn.dummyjson.com/product-images/19/1.jpg',
   },
   {
@@ -163,7 +163,7 @@ module.exports = [
       "Fair & Clear is Pakistan's only pure Freckle cream which helpsfade Freckles, Darkspots and pigments. Mercury level is 0%, so there are no side effects.",
     price: 70,
     brand: 'Fair & Clear',
-    category: 'skincare',
+    category: '뷰티',
     image: 'https://cdn.dummyjson.com/product-images/20/1.jpg',
   },
   {
@@ -171,7 +171,7 @@ module.exports = [
     description: 'Fine quality Branded Product Keep in a cool and dry place',
     price: 20,
     brand: 'Saaf & Khaas',
-    category: 'groceries',
+    category: '기타',
     image: 'https://cdn.dummyjson.com/product-images/21/1.png',
   },
   {
@@ -179,7 +179,7 @@ module.exports = [
     description: 'Product details of Bake Parlor Big Elbow Macaroni - 400 gm',
     price: 14,
     brand: 'Bake Parlor Big',
-    category: 'groceries',
+    category: '기타',
     image: 'https://cdn.dummyjson.com/product-images/22/1.jpg',
   },
   {
@@ -187,7 +187,7 @@ module.exports = [
     description: 'Specifications of Orange Essence Food Flavour For Cakes and Baking Food Item',
     price: 14,
     brand: 'Baking Food Items',
-    category: 'groceries',
+    category: '기타',
     image: 'https://cdn.dummyjson.com/product-images/23/1.jpg',
   },
   {
@@ -196,7 +196,7 @@ module.exports = [
       'original fauji cereal muesli 250gm box pack original fauji cereals muesli fruit nuts flakes breakfast cereal break fast faujicereals cerels cerel foji fouji',
     price: 46,
     brand: 'fauji',
-    category: 'groceries',
+    category: '기타',
     image: 'https://cdn.dummyjson.com/product-images/24/1.jpg',
   },
   {
@@ -204,7 +204,7 @@ module.exports = [
     description: 'Dry Rose Flower Powder Gulab Powder 50 Gram • Treats Wounds',
     price: 70,
     brand: 'Dry Rose',
-    category: 'groceries',
+    category: '기타',
     image: 'https://cdn.dummyjson.com/product-images/25/1.png',
   },
   {
@@ -212,7 +212,7 @@ module.exports = [
     description: 'Boho Decor Plant Hanger For Home Wall Decoration Macrame Wall Hanging Shelf',
     price: 41,
     brand: 'Boho Decor',
-    category: 'home-decoration',
+    category: '가구',
     image: 'https://cdn.dummyjson.com/product-images/26/1.jpg',
   },
   {
@@ -221,7 +221,7 @@ module.exports = [
       'Package Include 6 Birds with Adhesive Tape Shape: 3D Shaped Wooden Birds Material: Wooden MDF, Laminated 3.5mm',
     price: 51,
     brand: 'Flying Wooden',
-    category: 'home-decoration',
+    category: '가구',
     image: 'https://cdn.dummyjson.com/product-images/27/1.jpg',
   },
   {
@@ -229,7 +229,7 @@ module.exports = [
     description: '3D led lamp sticker Wall sticker 3d wall art light on/off button  cell operated (included)',
     price: 20,
     brand: 'LED Lights',
-    category: 'home-decoration',
+    category: '가구',
     image: 'https://cdn.dummyjson.com/product-images/28/1.jpg',
   },
   {
@@ -238,7 +238,7 @@ module.exports = [
       'Handcraft Chinese style art luxury palace hotel villa mansion home decor ceramic vase with brass fruit plate',
     price: 60,
     brand: 'luxury palace',
-    category: 'home-decoration',
+    category: '가구',
     image: 'https://cdn.dummyjson.com/product-images/29/1.jpg',
   },
   {
@@ -246,7 +246,7 @@ module.exports = [
     description: 'Attractive DesignMetallic materialFour key hooksReliable & DurablePremium Quality',
     price: 30,
     brand: 'Golden',
-    category: 'home-decoration',
+    category: '가구',
     image: 'https://cdn.dummyjson.com/product-images/30/1.jpg',
   },
 ];

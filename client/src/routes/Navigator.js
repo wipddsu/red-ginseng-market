@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Filter from '../Filter';
+import Filter from '../components/Filter';
 
-import style from '../../style/Navigator.module.css';
+import style from '../style/Navigator.module.css';
 
-export default function Navigator() {
+export default function Navigator({ products, onFilter }) {
   const [filterIsOn, setFilterIsOn] = useState(false);
 
   function handleFilter() {

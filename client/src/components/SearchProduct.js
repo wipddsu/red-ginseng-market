@@ -8,7 +8,8 @@ export default function SearchProduct() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  async function handleSearch() {
+  async function handleSearch(e) {
+    e.preventDefault();
     try {
       const data = await fetchSearchedProducts();
       navigate(`/search/${query}`, {
@@ -47,7 +48,7 @@ export default function SearchProduct() {
       <div className={style.container}>
         {error && <p>{error.message}</p>}
         <h2>상품 검색</h2>
-        <form>
+        <form onSubmit={handleSearch}>
           <div>
             <input
               type="search"
@@ -57,9 +58,7 @@ export default function SearchProduct() {
               value={query}
               onChange={handleChange}
             />
-            <button type="button" onClick={handleSearch}>
-              검색
-            </button>
+            <button>검색</button>
           </div>
         </form>
       </div>
