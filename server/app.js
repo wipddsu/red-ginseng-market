@@ -29,7 +29,16 @@ app.use((req, res, next) => {
 
 app.get('/products', async (req, res) => {
   const products = await Product.find({});
-  res.status(200).json({ products: products });
+  const filter = req.query.filter;
+
+  if (filter) {
+    const filterArr = filter.split(' ');
+    const filteredProducts = products.filter((item) => filterArr.includes(item.category));
+
+    res.status(200).json({ products: filteredProducts });
+  } else {
+    res.status(200).json({ products: products });
+  }
 });
 
 app.get('/products/:id', async (req, res) => {

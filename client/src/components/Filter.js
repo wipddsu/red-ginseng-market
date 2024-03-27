@@ -1,29 +1,12 @@
-import { useState } from 'react';
 import Category from './Category';
 
-export default function Filter({ style }) {
-  const [selectFilter, setSelectedFilter] = useState([]);
-
-  function hadleSelectFilter(e) {
-    const categoryTitle = e.target.innerText;
-
-    if (!selectFilter.includes(categoryTitle)) {
-      setSelectedFilter((prev) => [...prev, categoryTitle]);
-    } else {
-      setSelectedFilter((prev) => prev.filter((item) => item !== categoryTitle));
-    }
-  }
-
-  async function handleSubmit() {
-    console.log(selectFilter);
-  }
-
+export default function Filter({ style, onFilter, onReset, selectCategory, onSelectCategory }) {
   return (
     <div className={style.filter}>
-      <Category selectFilter={selectFilter} style={style} onSelectFilter={hadleSelectFilter} />
+      <Category selectCategory={selectCategory} style={style} onSelectCategory={onSelectCategory} />
       <div className={style.buttonBox}>
-        <button>초기화</button>
-        <button onClick={handleSubmit}>적용</button>
+        <button onClick={onReset}>초기화</button>
+        <button onClick={() => onFilter(selectCategory)}>적용</button>
       </div>
     </div>
   );
