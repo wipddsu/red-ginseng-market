@@ -59,6 +59,13 @@ app.post('/search', async (req, res) => {
   res.status(200).json([...searchedProduct]);
 });
 
+app.post('/new', async (req, res) => {
+  const product = new Product(req.body);
+  await product.save();
+
+  res.status(200).json({ message: 'Complete' });
+});
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
