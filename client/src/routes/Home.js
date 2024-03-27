@@ -76,7 +76,7 @@ export default function Home() {
   }
 
   return (
-    <Layout>
+    <Layout isHome={true}>
       <AllProducts products={products} isLoading={isLoading} error={error} />
       <Navigator products={products} onFilter={handleFilterProducts} onReset={handleResetFilter} />
     </Layout>

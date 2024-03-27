@@ -4,7 +4,7 @@ import Filter from '../components/Filter';
 
 import style from '../style/Navigator.module.css';
 
-export default function Navigator({ products, onFilter, onReset }) {
+export default function Navigator({ onFilter, onReset }) {
   const [filterIsOn, setFilterIsOn] = useState(false);
   const [selectCategory, setSelectedCategory] = useState([]);
 
@@ -34,20 +34,17 @@ export default function Navigator({ products, onFilter, onReset }) {
           <Filter
             style={style}
             onFilter={onFilter}
-            onReset={hadleResetCategory}
             selectCategory={selectCategory}
             onSelectCategory={hadleSelectCategory}
+            onReset={hadleResetCategory}
           />
         )}
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
+        <ul className={style.navBar}>
           <li>
             <Link to="/search">Search</Link>
           </li>
           <li>
-            <button onClick={handleFilter}>Filter</button>
+            <button onClick={handleFilter}>Filter{selectCategory.length > 0 && `(${selectCategory.length})`}</button>
           </li>
         </ul>
       </nav>
