@@ -31,13 +31,15 @@ app.get('/products', async (req, res) => {
   const products = await Product.find({});
   const filter = req.query.filter;
 
+  console.log(products);
+
   if (filter) {
     const filterArr = filter.split(' ');
     const filteredProducts = products.filter((item) => filterArr.includes(item.category));
 
-    res.status(200).json({ products: filteredProducts });
+    res.status(200).json(filteredProducts);
   } else {
-    res.status(200).json({ products: products });
+    res.status(200).json(products);
   }
 });
 
@@ -46,6 +48,13 @@ app.get('/products/:id', async (req, res) => {
   const product = await Product.findById(id);
 
   res.status(200).json(product);
+});
+
+app.delete('/products/:id/delete', async (req, res) => {
+  const { id } = req.params;
+  await Product.findByIdAndDelete(id);
+
+  res.status(200).json({ message: 'Delete Success' });
 });
 
 app.post('/search', async (req, res) => {
@@ -60,17 +69,11 @@ app.post('/search', async (req, res) => {
 });
 
 app.post('/new', async (req, res) => {
+  console.log(req.body);
   const product = new Product(req.body);
   await product.save();
 
   res.status(200).json({ message: 'Create Success' });
-});
-
-app.delete('/products/:id/delete', async (req, res) => {
-  const { id } = req.params;
-  await Product.findByIdAndDelete(id);
-
-  res.status(200).json({ message: 'Delete Success' });
 });
 
 app.listen(port, () => {

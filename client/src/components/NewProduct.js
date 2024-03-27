@@ -2,32 +2,23 @@ import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import style from '../style/NewProduct.module.css';
+import useHttp from '../hooks/useHttp';
+
+const config = {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+};
 
 export default function NewProduct() {
   const [isEmpty, setIsEmpty] = useState([]);
-  const [error, setError] = useState(null);
+  const { error, sendRequest } = useHttp('http://localhost:3001/new', config, null);
   const navigate = useNavigate();
 
   async function handleNewProduct(data) {
-    try {
-      const response = await fetch('http://localhost:3001/new', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to Create Data');
-      }
-
-      navigate('/');
-    } catch (error) {
-      setError({
-        message: 'Could not create new product, please try again later.',
-      });
-    }
+    await sendRequest(JSON.stringify(data));
+    navigate('/');
   }
 
   function handleSubmit(e) {
