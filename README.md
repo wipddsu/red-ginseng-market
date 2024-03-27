@@ -9,5 +9,6 @@ React, Express, MongoDB, Mongoose
 ## 기능
 
 - 상품 검색
-- 상품 필터
 - 상품 등록
+- 상품 삭제
+- 필터
