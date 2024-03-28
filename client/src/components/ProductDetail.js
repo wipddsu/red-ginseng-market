@@ -1,12 +1,41 @@
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Error from './Error';
 
 import style from '../style/ProductDetail.module.css';
-import { useNavigate } from 'react-router-dom';
 import useHttp from '../hooks/useHttp';
 
+const initialConfig = {};
+
+const deleteConfig = {
+  method: 'DELETE',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+};
+
 export default function ProductDetail({ id }) {
-  const { data: product, isLoading, error } = useHttp(`http://localhost:3001/products/${id}`);
+  const [url, setUrl] = useState(`http://localhost:3001/products/${id}`);
+  const [config, setConfig] = useState(initialConfig);
+  const { data: product, isLoading, error, sendRequest } = useHttp(url, config, null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (url !== `http://localhost:3001/products/${id}` && config.method === 'DELETE') {
+      sendRequest();
+    }
+  }, [url, config]);
+
+  useEffect(() => {
+    if (!isLoading && !error && config.method === 'DELETE') {
+      navigate('/');
+    }
+  }, [url, config]);
+
+  function handleDelete() {
+    setUrl(`http://localhost:3001/products/${id}/delete`);
+    setConfig(deleteConfig);
+  }
 
   if (error) {
     return (
@@ -15,31 +44,6 @@ export default function ProductDetail({ id }) {
       </main>
     );
   }
-
-  // async function handleDelete() {
-  //   setIsLoading(true);
-
-  //   try {
-  //     const response = await fetch(`http://localhost:3001/products/${id}/delete`, {
-  //       method: 'DELETE',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //     });
-
-  //     if (!response.ok) {
-  //       throw new Error('Failed to delete Data');
-  //     }
-
-  //     navigate('/');
-  //   } catch (error) {
-  //     setError({
-  //       message: 'Could not load product, pleas try again later.',
-  //     });
-  //   }
-
-  //   setIsLoading(false);
-  // }
 
   return (
     <main>
@@ -53,7 +57,7 @@ export default function ProductDetail({ id }) {
           </div>
           <span>{product.category}</span>
           <p>{product.description}</p>
-          <button>삭제</button>
+          <button onClick={handleDelete}>삭제</button>
         </>
       )}
     </main>
