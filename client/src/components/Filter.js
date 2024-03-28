@@ -1,34 +1,19 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import Category from './Category';
 
 import { ProductsContext } from '../store/products-context';
 
-export default function Filter({ style, handleFilter }) {
+export default function Filter({ style, handleFilter, selectedCategory, onSelectCategory, onResetCategory }) {
   const { onFilter, onReset } = useContext(ProductsContext);
-  const [selectedCategory, setSelectedCategory] = useState([]);
-
-  function hadleSelectCategory(e) {
-    const categoryTitle = e.target.innerText;
-
-    if (!selectedCategory.includes(categoryTitle)) {
-      setSelectedCategory((prev) => [...prev, categoryTitle]);
-    } else {
-      setSelectedCategory((prev) => prev.filter((item) => item !== categoryTitle));
-    }
-  }
-
-  function hadleResetCategory() {
-    setSelectedCategory([]);
-  }
 
   return (
     <div className={style.filter}>
-      <Category style={style} selectedCategory={selectedCategory} onSelectCategory={hadleSelectCategory} />
+      <Category style={style} selectedCategory={selectedCategory} onSelectCategory={onSelectCategory} />
       <div className={style.buttonBox}>
         <button
           onClick={() => {
             onReset();
-            hadleResetCategory();
+            onResetCategory();
             handleFilter();
           }}
         >
