@@ -1,43 +1,33 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import style from '../style/SearchProduct.module.css';
+import useHttp from '../hooks/useHttp';
+
+const config = {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+};
 
 export default function SearchProduct() {
   const [query, setQuery] = useState('');
-  const [error, setError] = useState(null);
+  const { data, error, sendRequest } = useHttp('http://localhost:3001/search', config, null);
   const navigate = useNavigate();
 
   async function handleSearch(e) {
     e.preventDefault();
-    try {
-      const data = await fetchSearchedProducts();
+    await sendRequest(JSON.stringify({ query }));
+  }
+
+  useEffect(() => {
+    if (data) {
       navigate(`/search/${query}`, {
         state: [...data],
       });
-    } catch (error) {
-      setError({
-        message: 'Could not search products, please try again later.',
-      });
     }
-  }
-
-  async function fetchSearchedProducts() {
-    const response = await fetch('http://localhost:3001/search', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ query }),
-    });
-
-    if (!response.ok) {
-      throw new Error('Failed to search product');
-    }
-
-    const data = await response.json();
-    return data;
-  }
+  }, [data]);
 
   function handleChange(e) {
     setQuery(e.target.value);

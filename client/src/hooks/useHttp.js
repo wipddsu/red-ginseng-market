@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
 async function sendHttpRequest(url, config) {
-  console.log(config);
   const response = await fetch(url, config);
   const resData = await response.json();
 
