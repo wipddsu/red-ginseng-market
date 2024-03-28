@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import Layout from '../components/layout/Layout';
 import AllProducts from '../components/AllProducts';
-import Navigator from './Navigator';
+import Navigator from '../components/Navigator';
+import Aside from '../components/Aside';
+import ProductsContextProvider from '../store/products-context';
+
 import useHttp from '../hooks/useHttp';
 
 const productsInitialData = [];
@@ -19,9 +22,12 @@ export default function Home() {
   }
 
   return (
-    <Layout isHome={true}>
-      <AllProducts products={products} isLoading={isLoading} error={error} />
-      <Navigator products={products} onFilter={handleFilterProducts} onReset={handleResetFilter} />
-    </Layout>
+    <ProductsContextProvider>
+      <Layout isHome={true}>
+        <AllProducts isLoading={isLoading} error={error} />
+        <Navigator onFilter={handleFilterProducts} onReset={handleResetFilter} />
+        <Aside />
+      </Layout>
+    </ProductsContextProvider>
   );
 }
